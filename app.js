@@ -15,7 +15,24 @@ servidor.use(require("./routers/routerindex"));
 servidor.use(require("./routers/routerlogin"));
 servidor.use(require("./routers/routerperfil"));
 servidor.use(require("./routers/routercontraseña"));
+
+
+servidor.post("/Ingresar",(req,res)=>{
+    var tipoUsuario=peticion.body.select;
+    if(tipoUsuario=="Vendedor"){
+       res.render("perfilV.ejs")
+    }
+    if(tipoUsuario=="Comprador"){
+        res.render("perfilC.ejs")
+     }
  
+})
+servidor.get("/PerfilV",(req,res)=>{
+    res.render("perfilV.ejs")
+});
+servidor.get("/PerfilC",(req,res)=>{
+    res.render("perfilC.ejs")
+})
  
  
 
